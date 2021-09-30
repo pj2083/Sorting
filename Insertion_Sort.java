@@ -1,31 +1,24 @@
-import java.util.*;
-public class Insertion_Sort {
+public class insertionsort {
+public static void sort(int[] arr,int n) {
+	if(n<=1) {
+		return;
+	}
+	int last=arr[n-1];
+	int j=n-2;
+	while(j>=0 && arr[j]>last) {
+	arr[j+1]=arr[j];
+	j--;
+	}
+	arr[j+1]=last;
+	
+	sort(arr,n-1);
+}
 	public static void main(String[] args) {
-		Scanner sc = new Scanner (System.in);
-		int n = sc.nextInt();
-		int [] arr = new int [n];
-		for (int i=0; i<n; i++)
-		{
-			arr[i] = sc.nextInt();
-		}
-		
-		int key, j=0;
-		for (int i=1; i<n; i++)
-		{
-			key = arr[i];
-			j = i-1;
-			while (j>=0 && key<arr[j])
-			{
-				arr [j+1] = arr[j];
-				j--;
-			}
-			arr [j+1] = key;
-		}
-		
-		for (int element : arr)
-		{
-			System.out.print(element+" ");
-		}
+int arr[]= {3,2,4,5,6};
+sort(arr,arr.length);
+for(int i=0;i<arr.length;i++) {
+	System.out.print(arr[i]+" ");
+}
 
 	}
 
